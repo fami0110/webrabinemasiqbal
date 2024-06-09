@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+header h1 {
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  border: none;
+  outline: none;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Playfair Display", serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: fixed;
+  bottom: 0;
+  transition: bottom 1s cubic-bezier(0.77, 0, 0.18, 1);
+  height: 100vh;
+  width: 100vw;
+  background-color: #746d69;
+  color: #eeeeee;
+  text-align: center;
+  padding: 2rem;
+}
+header h2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-bottom: 1px solid #eeeeee;
+}
+header h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 220px;
+}
+header h1 * {
+  display: inline-block;
+  width: 100%;
+}
+header h1 span {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+header h1 b {
+  font-size: 3.8rem;
+}
+header h1 b:first-child {
+  text-align: start;
+}
+header h1 b:last-child {
+  text-align: end;
+}
+header section {
+  margin: 1rem 0;
+}
+header section #recipient {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.2rem 0;
+  text-transform: capitalize;
+}
+header button#open {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 1.2rem;
+  border-radius: 30px;
+}
+header.open {
+  bottom: 100vh;
+}
+header.open ~ main {
+  display: block;
+}
+
+main {
+  display: none;
+}
+main nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+main section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  min-height: 100vh;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+$primary : #746d69;
+$secondary : #7b7b7b;
+$bgcolor1 : #9c9c9c;
+$bgcolor2 : #acada8;
+$textprimary : #5f5f5f;
+$textdark : #1d1d1d;
+$textlight : #eeeeee;
+
+// Extends and Mixins
+%title {
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+}
+
+@mixin flex($direction: row, $justify: center, $align: center, $gap: 2rem) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+// All styles
+* {
+    // outline: 1px solid red;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    border: none;
+    outline: none;
+}
+
+// Body
+body {
+    min-height: 100vh;
+    font-family: "Playfair Display", serif;
+}
+
+// Header (Cover Undangan)
+header {
+    @include flex($direction: column, $gap: 2rem);
+    position: fixed;
+    bottom: 0;
+    transition: bottom 1s cubic-bezier(0.77,0,0.18,1);
+    height: 100vh;
+    width: 100vw;
+    background-color: $primary;
+    color: $textlight;
+    text-align: center;
+    padding: 2rem;
+
+    h2 {
+        font-size: 1.4rem;
+        font-weight: bold;
+        border-bottom: 1px solid $textlight;
+    }
+
+    h1 {
+        @include flex($direction: column, $gap: 0);
+        @extend %title;
+        width: 220px;
+
+        * {
+            display: inline-block;
+            width: 100%;
+        }
+
+        span {
+            font-size: 2rem;
+            font-weight: bolder;
+        }
+
+        b {
+            font-size: 3.8rem;
+
+            &:first-child {
+                text-align: start;
+            }
+
+            &:last-child {
+                text-align: end;
+            }
+        }
+    }
+
+    section {
+        margin: 1rem 0;
+
+        #recipient {
+           font-size: 2rem;
+           font-weight: bold;
+           margin: 1.2rem 0;
+           text-transform: capitalize;
+       }
+    }
+
+    button#open {
+        @include flex($direction: row, $gap: 10px);
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 1.2rem;
+        border-radius: 30px;
+    }
+
+    &.open {
+        bottom: 100vh;
+        & ~ main {
+            display: block;
+        }
+    }
+}
+
+// Main Sections
+main {
+    display: none;
+
+    nav {
+        @include flex($direction: column, $gap: 2rem);
+    }
+
+    section {
+        @include flex($direction: row, $gap: 0);
+        min-height: 100vh;
+    }
+}
+
+// Footer (Credit)
+// footer {
+    
+// }

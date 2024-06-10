@@ -22,6 +22,7 @@ $('#open').on('click', function() {
     $('header').addClass('open');
     audio.volume = 0.5;
     audio.play();
+    AOS.init();
 });
 
 // Toogle event handler

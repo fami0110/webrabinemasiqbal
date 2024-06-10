@@ -37,7 +37,7 @@ body {
 }
 .corners img {
   position: absolute;
-  width: 4rem;
+  width: 5rem;
   filter: invert(1);
 }
 .corners img:nth-of-type(1) {
@@ -58,6 +58,15 @@ body {
   bottom: 8px;
   right: 8px;
   transform: rotate(-180deg);
+}
+
+.bg-img-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 main section#invitation article h1, header h1 {
@@ -88,13 +97,21 @@ header {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background-color: #5f5c5a;
+  background-color: black;
   color: #eeeeee;
   text-align: center;
   padding: 2rem;
   z-index: 99;
   bottom: 0;
   transition: bottom 1s cubic-bezier(0.77, 0, 0.18, 1);
+}
+header .bg-img-container {
+  background-image: url("../img/1fix.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.5;
 }
 header h2 {
   font-size: 1.4rem;
@@ -215,7 +232,10 @@ main section {
   z-index: 10;
 }
 main section#invitation {
-  background: #222222;
+  background-image: url("../img/3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: #eeeeee;
 }
 main section#invitation article {
@@ -226,19 +246,19 @@ main section#invitation article {
   gap: 0;
   flex-wrap: wrap;
   position: absolute;
-  bottom: 15rem;
+  bottom: 20vh;
 }
 main section#invitation article h2 {
   font-size: calc(clamp(1rem, 3vw, 2rem) + 8px);
   font-weight: bold;
-  border-bottom: 1px solid #5f5c5a;
+  border-bottom: 1px solid #eeeeee;
 }
 main section#invitation article h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(1rem, 3vw, 2rem);
   flex-wrap: wrap;
   font-size: clamp(2rem, 6vw, 4rem);
 }
@@ -255,7 +275,7 @@ main section#invitation::after {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
   z-index: -1;
 }
 main section#couple {

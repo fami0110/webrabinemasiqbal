@@ -53,7 +53,7 @@ body {
     
     img {
         position: absolute;
-        width: 4rem;
+        width: 5rem;
         filter: invert(1);
         
         &:nth-of-type(1) {
@@ -78,6 +78,15 @@ body {
     }
 }
 
+.bg-img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
 // Mixins and Extends
 @mixin flex($direction: row, $wrap: wrap, $justify: center, $align: center, $gap: 2rem) {
     display: flex;
@@ -86,6 +95,13 @@ body {
     align-items: $align;
     gap: $gap;
     flex-wrap: $wrap;
+}
+
+@mixin bgImage($src: "", $repeat: no-repeat, $size: cover, $position: center) {
+    background-image: url($src);
+    background-repeat: $repeat;
+    background-size: $size;
+    background-position: $position;
 }
 
 %title {
@@ -107,11 +123,17 @@ header {
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background-color: $primary;
+    background-color: black;
     color: $textlight;
     text-align: center;
     padding: 2rem;
     z-index: 99;
+
+    .bg-img-container {
+        @include bgImage("../img/1fix.jpg");
+        z-index: -1;
+        opacity: 0.5;
+    }
 
     h2 {
         font-size: 1.4rem;
@@ -231,21 +253,22 @@ main {
         z-index: 10;
 
         &#invitation {
-            background: $dark;
+            @include bgImage($src: "../img/3.jpg", $position: center);
             color: $textlight;
 
             article {
                 @include flex($direction: column, $wrap: wrap, $gap: 0);
                 position: absolute;
-                bottom: 15rem;
+                bottom: 20vh;
+
                 h2 {
                     font-size: calc($text-sm + 8px);
                     font-weight: bold;
-                    border-bottom: 1px solid $primary;
+                    border-bottom: 1px solid $textlight;
                 }
 
                 h1 {
-                    @include flex($direction: row, $gap: 1rem);
+                    @include flex($direction: row, $gap: $text-sm);
                     @extend %title;
                     font-size: $text-md;
                     b {
@@ -265,7 +288,7 @@ main {
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 100%);
                 z-index: -1;
             }
         }

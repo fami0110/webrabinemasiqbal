@@ -9,28 +9,18 @@ $textprimary : #5f5f5f;
 $textdark : #1d1d1d;
 $textlight : #eeeeee;
 
-// Extends and Mixins
-%title {
-    font-family: "Dancing Script", cursive;
-    font-weight: bold;
-}
+$text-sm: clamp(1rem, 3vw, 2rem);
+$text-md: clamp(2rem, 6vw, 4rem);
+$text-lg: clamp(4rem, 12vw, 8rem);
 
-@mixin flex($direction: row, $wrap: wrap, $justify: center, $align: center, $gap: 2rem) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
-    gap: $gap;
-    flex-wrap: $wrap;
-}
-
-// All styles
+// Common styles
 * {
     // outline: 1px solid red;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-weight: 400;
+    text-align: center;
     border: none;
 }
 
@@ -38,7 +28,6 @@ $textlight : #eeeeee;
     scroll-behavior: smooth;
 }
 
-// Body
 body {
     min-height: 100vh;
     font-family: "Playfair Display", serif;
@@ -54,6 +43,29 @@ body {
     height: 1px;
     width: 80%;
     border: 1px solid $dark;
+}
+
+// Mixins and Extends
+@mixin flex($direction: row, $wrap: wrap, $justify: center, $align: center, $gap: 2rem) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+    flex-wrap: $wrap;
+}
+
+%title {
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+}
+
+%nav-btn {
+    @include flex();
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
 // Header (Cover Undangan)
@@ -135,14 +147,6 @@ header {
 }
 
 // Main Sections
-%nav-btn {
-    @include flex();
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
-
 main {
     display: none;
 
@@ -157,6 +161,7 @@ main {
         border: 3px outset $primary;
         border-radius: 3rem;
         background-color: #eeeeee;
+        z-index: 50;
 
         ul {
             @include flex($direction: row, $wrap: nowrap, $gap: 4px);
@@ -187,11 +192,49 @@ main {
     }
 
     section {
-        @include flex($direction: row, $gap: 0);
+        @include flex($direction: column, $gap: 0);
         min-height: 100vh;
+        position: relative;
+        z-index: 10;
 
         &#invitation {
-            background: $bgcolor1;
+            background: $dark;
+            color: $textlight;
+
+            article {
+                @include flex($direction: column, $wrap: wrap, $gap: 0);
+                position: absolute;
+                bottom: 15rem;
+                h2 {
+                    font-size: $text-sm;
+                    font-weight: bold;
+                    border-bottom: 1px solid $primary;
+                }
+
+                h1 {
+                    @include flex($direction: row, $gap: 1rem);
+                    @extend %title;
+                    font-size: $text-md;
+                    b {
+                        font-size: $text-lg;
+                    }
+                }
+
+                p {
+                    font-size: $text-sm;
+                }
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+                z-index: -1;
+            }
         }
 
         &#couple {

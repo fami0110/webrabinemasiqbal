@@ -1,14 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
-header h1 {
-  font-family: "Dancing Script", cursive;
-  font-weight: bold;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-weight: 400;
+  text-align: center;
   border: none;
 }
 
@@ -31,6 +27,24 @@ body {
   height: 1px;
   width: 80%;
   border: 1px solid #222222;
+}
+
+main section#invitation article h1, header h1 {
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+}
+
+main nav ul#toogles li, main nav ul#navigations li a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
 header {
@@ -111,19 +125,6 @@ header.open ~ main {
   display: block;
 }
 
-main nav ul#toogles li, main nav ul#navigations li a {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
 main {
   display: none;
 }
@@ -143,6 +144,7 @@ main nav {
   border: 3px outset #5f5c5a;
   border-radius: 3rem;
   background-color: #eeeeee;
+  z-index: 50;
 }
 main nav ul {
   display: flex;
@@ -172,15 +174,58 @@ main nav ul#toogles li.active img {
 }
 main section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0;
   flex-wrap: wrap;
   min-height: 100vh;
+  position: relative;
+  z-index: 10;
 }
 main section#invitation {
-  background: #dddddd;
+  background: #222222;
+  color: #eeeeee;
+}
+main section#invitation article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 15rem;
+}
+main section#invitation article h2 {
+  font-size: clamp(1rem, 3vw, 2rem);
+  font-weight: bold;
+  border-bottom: 1px solid #5f5c5a;
+}
+main section#invitation article h1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+main section#invitation article h1 b {
+  font-size: clamp(4rem, 12vw, 8rem);
+}
+main section#invitation article p {
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+main section#invitation::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: -1;
 }
 main section#couple {
   background: #c5c5c5;

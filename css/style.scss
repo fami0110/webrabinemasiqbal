@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-$primary : #746d69;
+$primary : #5f5c5a;
 $secondary : #7b7b7b;
-$bgcolor1 : #9c9c9c;
-$bgcolor2 : #acada8;
+$dark : #222222;
+$bgcolor1 : #dddddd;
+$bgcolor2 : #c5c5c5;
 $textprimary : #5f5f5f;
 $textdark : #1d1d1d;
 $textlight : #eeeeee;
@@ -14,12 +15,13 @@ $textlight : #eeeeee;
     font-weight: bold;
 }
 
-@mixin flex($direction: row, $justify: center, $align: center, $gap: 2rem) {
+@mixin flex($direction: row, $wrap: wrap, $justify: center, $align: center, $gap: 2rem) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
     gap: $gap;
+    flex-wrap: $wrap;
 }
 
 // All styles
@@ -30,7 +32,10 @@ $textlight : #eeeeee;
     padding: 0;
     font-weight: 400;
     border: none;
-    outline: none;
+}
+
+:root {
+    scroll-behavior: smooth;
 }
 
 // Body
@@ -39,18 +44,29 @@ body {
     font-family: "Playfair Display", serif;
 }
 
+.vertical-divider {
+    height: 80%;
+    width: 1px;
+    border: 1px solid $dark;
+}
+
+.horizontal-divider {
+    height: 1px;
+    width: 80%;
+    border: 1px solid $dark;
+}
+
 // Header (Cover Undangan)
 header {
     @include flex($direction: column, $gap: 2rem);
     position: fixed;
-    bottom: 0;
-    transition: bottom 1s cubic-bezier(0.77,0,0.18,1);
     height: 100vh;
     width: 100vw;
     background-color: $primary;
     color: $textlight;
     text-align: center;
     padding: 2rem;
+    z-index: 99;
 
     h2 {
         font-size: 1.4rem;
@@ -90,11 +106,11 @@ header {
         margin: 1rem 0;
 
         #recipient {
-           font-size: 2rem;
-           font-weight: bold;
-           margin: 1.2rem 0;
-           text-transform: capitalize;
-       }
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1.2rem 0;
+            text-transform: capitalize;
+        }
     }
 
     button#open {
@@ -106,29 +122,98 @@ header {
         border-radius: 30px;
     }
 
+    bottom: 0;
+    transition: bottom 1s cubic-bezier(0.77, 0, 0.18, 1);
+
     &.open {
         bottom: 100vh;
-        & ~ main {
+
+        &~main {
             display: block;
         }
     }
 }
 
 // Main Sections
+%nav-btn {
+    @include flex();
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
 main {
     display: none;
 
     nav {
-        @include flex($direction: column, $gap: 2rem);
+        @include flex($direction: row, $wrap: nowrap, $gap: 8px);
+        position: fixed;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 60px;
+        padding: 10px 1rem;
+        border: 3px outset $primary;
+        border-radius: 3rem;
+        background-color: #eeeeee;
+
+        ul {
+            @include flex($direction: row, $wrap: nowrap, $gap: 4px);
+
+            &#navigations li {
+                display: inline-block;
+    
+                a {
+                    @extend %nav-btn;
+
+                    &:hover {
+                        background-color: $dark;
+                        img {filter: invert(1);}
+                    }
+                }
+            }
+
+            &#toogles li {
+                @extend %nav-btn;
+                cursor: pointer;
+
+                &.active {
+                    background-color: $dark;
+                    img {filter: invert(1);}
+                }
+            }
+        }
     }
 
     section {
         @include flex($direction: row, $gap: 0);
         min-height: 100vh;
+
+        &#invitation {
+            background: $bgcolor1;
+        }
+
+        &#couple {
+            background: $bgcolor2;
+        }
+
+        &#event {
+            background: $bgcolor1;
+        }
+
+        &#gallery {
+            background: $bgcolor2;
+        }
+
+        &#gift {
+            background: $bgcolor1;
+        }
+
     }
 }
 
 // Footer (Credit)
 // footer {
-    
+
 // }

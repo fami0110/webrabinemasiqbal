@@ -1,0 +1,85 @@
+@use 'base';
+
+// Header (Cover Undangan)
+header {
+    @include base.flex($direction: column, $gap: 2rem);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    color: base.$textlight;
+    text-align: center;
+    padding: 2rem;
+    z-index: 99;
+
+    .bg-img-container {
+        @include base.bgImage("../img/1fix.jpg");
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        font-weight: bold;
+        border-bottom: 1px solid base.$textlight;
+    }
+
+    h1 {
+        @include base.flex($direction: column, $gap: 0);
+        @extend %title;
+        width: 220px;
+
+        * {
+            display: inline-block;
+            width: 100%;
+        }
+
+        span {
+            font-size: 2rem;
+            font-weight: bolder;
+        }
+
+        b {
+            font-size: 3.8rem;
+
+            &:first-child {
+                text-align: start;
+            }
+
+            &:last-child {
+                text-align: end;
+            }
+        }
+    }
+
+    section {
+        margin: 1rem 0;
+
+        #recipient {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1.2rem 0;
+            text-transform: capitalize;
+        }
+    }
+
+    button#open {
+        @include base.flex($direction: row, $gap: 10px);
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 1.2rem;
+        border-radius: 30px;
+    }
+
+    bottom: 0;
+    transition: bottom 1s cubic-bezier(0.77, 0, 0.18, 1);
+
+    &.open {
+        bottom: 100vh;
+
+        &~main {
+            display: block;
+        }
+    }
+}

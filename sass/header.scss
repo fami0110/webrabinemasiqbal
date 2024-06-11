@@ -72,6 +72,10 @@ header {
         border-radius: 30px;
     }
 
+    .corners img {
+        filter: invert(1);
+    }
+
     bottom: 0;
     transition: bottom 1s cubic-bezier(0.77, 0, 0.18, 1);
 

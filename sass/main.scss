@@ -46,14 +46,14 @@ main {
     }
 
     section {
-        @include base.flex($direction: column, $gap: 0);
+        @include base.flex($direction: column, $gap: 2rem);
         min-height: 100vh;
         position: relative;
-        z-index: 10;
 
         &#invitation {
             @include base.bgImage($src: "../img/3.jpg", $position: center);
             color: base.$textlight;
+            z-index: -1;
 
             article {
                 @include base.flex($direction: column, $wrap: wrap, $gap: 0);
@@ -70,6 +70,7 @@ main {
                     @include base.flex($direction: row, $gap: base.$text-sm);
                     @extend %title;
                     font-size: base.$text-md;
+
                     b {
                         font-size: base.$text-lg;
                     }
@@ -90,10 +91,25 @@ main {
                 background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 100%);
                 z-index: -1;
             }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 10vw;
+                background: url('../assets/wave1.svg');
+                background-size: cover;
+                background-position: center -8px;
+                z-index: 1;
+            }
         }
 
         &#couple {
+            z-index: -2;
             background: base.$bgcolor2;
+            padding: max(calc(10vw + 3rem), 6rem) 0;
         }
 
         &#event {

@@ -2,5 +2,43 @@
 
 // Footer (Credit)
 footer {
+    @include base.flex($direction: column, $justify: start, $gap: 3rem);
+    position: relative;
+    height: min-content;
+    padding: 6rem 0 200px;
+    background-color: base.$bgcolor3;
 
+    h2 {
+        filter: invert(1);
+    }
+
+    section#credit {
+        @include base.flex($direction: row, $gap: 8px);
+        background-color: base.$secondary;
+        color: base.$textdark;
+        padding: 8px 1rem;
+        
+        & * {
+            font-family: monospace;
+            font-size: 1rem;
+            font-weight: bold !important;
+        }
+
+        & a {
+            color: rgb(65, 65, 236);
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background: url(../assets/wave3.svg);
+        background-size: cover;
+        background-position: center top;
+        z-index: 1;
+    }
 }

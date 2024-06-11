@@ -4,8 +4,8 @@
 header {
     @include base.flex($direction: column, $gap: 2rem);
     position: fixed;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: black;
     color: base.$textlight;
     text-align: center;
@@ -80,7 +80,7 @@ header {
     transition: bottom 1s cubic-bezier(0.77, 0, 0.18, 1);
 
     &.open {
-        bottom: 100vh;
+        bottom: 100%;
 
         &~main {
             display: block;

@@ -12,7 +12,7 @@ header {
     padding: 2rem;
     z-index: 99;
 
-    .bg-img-container {
+    .backdrop-container {
         @include base.bgImage("../img/1fix.jpg");
         z-index: -1;
         opacity: 0.5;

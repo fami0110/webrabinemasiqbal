@@ -3,6 +3,7 @@
 // Main Sections
 main {
     display: none;
+    position: relative;
 
     nav {
         @include base.flex($direction: row, $wrap: nowrap, $gap: 8px);
@@ -53,7 +54,7 @@ main {
         &#invitation {
             @include base.bgImage($src: "../img/3.jpg", $position: center);
             color: base.$textlight;
-            z-index: -1;
+            z-index: 10;
 
             article {
                 @include base.flex($direction: column, $wrap: wrap, $gap: 0);
@@ -98,7 +99,8 @@ main {
                 top: 100%;
                 left: 0;
                 width: 100%;
-                height: 10vw;
+                height: min(10vw, 200px);
+                pointer-events: none;
                 background: url('../assets/wave1.svg');
                 background-size: cover;
                 background-position: center -8px;
@@ -107,9 +109,121 @@ main {
         }
 
         &#couple {
-            z-index: -2;
             background: base.$bgcolor2;
-            padding: max(calc(10vw + 3rem), 6rem) 0;
+            padding: max(calc(10vw + 4rem), 6rem) 0 100px;
+            z-index: 9;
+
+            .card {
+                @include base.flex($direction: column);
+                position: relative;
+                width: min(86vw, 640px);
+                padding: 3rem 1.5rem;
+                margin-top: 180px;
+                background-color: base.$bgcolor1;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                border-radius: 1rem;
+
+                & > p {
+                    font-size: base.$text-xs;
+                }
+
+                .photo-profile {
+                    position: absolute;
+                    bottom: calc(100% - 1rem);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 150px;
+                    height: 180px;
+                    padding: 1rem 1rem 0 1rem;
+                    background: base.$bgcolor1;
+                    border-radius: 100px 100px 0 0;
+                    
+                    .container {
+                        height: 100%;
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 100px 100px 8px 8px;
+    
+                        .backdrop-container {
+                            @include base.bgImage($src: "../img/4.jpg", $position: center bottom);
+                        }
+                    }
+                    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 4px;
+                        right: -3rem;
+                        width: 80px;
+                        height: 160px;
+                        background: url("../assets/decoration1.png");
+                        background-size: cover;
+                        transform: scaleX(-1);
+                        filter: invert(1);
+                        z-index: 12;
+                    }
+    
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 4px;
+                        left: -3rem;
+                        width: 80px;
+                        height: 160px;
+                        background: url("../assets/decoration1.png");
+                        background-size: cover;
+                        filter: invert(1);
+                        z-index: 12;
+                    }
+                }
+
+                img.basmalah {
+                    width: 200px;
+                    filter: invert(1);
+                }
+
+                
+                .container {
+                    @include base.flex($justify: space-between, $align: center, $gap: 2rem);
+                    padding: 1rem 0;
+                    width: 100%;
+                    
+                    article:first-of-type {
+                        @include base.flex($direction:column, $align: start, $gap: 4px, $wrap: nowrap);
+                        flex-grow: 1;
+                        padding-left: 12px;
+                        border-left: 5px solid pink;
+
+                        * {
+                            text-align: start;
+                        }
+                    }
+
+                    article:last-of-type {
+                        @include base.flex($direction:column, $align: end, $gap: 4px, $wrap: nowrap);
+                        flex-grow: 1;
+                        padding-right: 12px;
+                        border-right: 5px solid rgb(83, 243, 243);
+
+                        * {
+                            text-align: end;
+                        }
+                    }
+
+                    h3 {
+                        font-weight: bolder;
+                        text-decoration: underline;
+                    }
+
+                    h4 {
+                        font-weight: bold;
+                    }
+                }
+
+                .corners img {
+                    width: 60px;
+                }
+            }
         }
 
         &#event {

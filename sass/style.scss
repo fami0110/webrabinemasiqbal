@@ -4,7 +4,7 @@
 
 // Common styles
 * {
-    outline: 1px solid red;
+    // outline: 1px solid red;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -40,12 +40,11 @@ a {
         bottom: 90%;
         left: 50%;
         transform: translateX(-50%);
-        width: 400px;
+        width: min(400px, 100vw);
         height: 50px;
         background-image: url("../assets/line1.png");
         background-size: 400px;
         background-position: center;
-
     }
 
     &::after {
@@ -55,12 +54,11 @@ a {
         left: 50%;
         transform: rotate(180deg) translateX(50%);
         transform-origin: center;
-        width: 400px;
+        width: min(400px, 100vw);
         height: 50px;
         background-image: url("../assets/line1.png");
         background-size: 400px;
         background-position: center;
-
     }
 }
 

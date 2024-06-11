@@ -50,10 +50,12 @@ main {
         @include base.flex($direction: column, $gap: 2rem);
         min-height: 100vh;
         position: relative;
+        overflow: hidden;
 
         &#invitation {
             @include base.bgImage($src: "../img/3.jpg", $position: center);
             color: base.$textlight;
+            overflow: visible;
             z-index: 10;
 
             article {
@@ -184,7 +186,7 @@ main {
 
                 
                 .container {
-                    @include base.flex($justify: space-between, $align: center, $gap: 2rem);
+                    @include base.flex($justify: space-between, $align: center, $gap: 1rem);
                     padding: 1rem 0;
                     width: 100%;
                     

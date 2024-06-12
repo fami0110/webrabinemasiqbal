@@ -23,6 +23,7 @@ $('#open').on('click', function() {
     audio.volume = 0.5;
     audio.play();
     AOS.init();
+    setTimeout(() => $('header').hide(), 2000);
 });
 
 // Toogle event handler

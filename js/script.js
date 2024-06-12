@@ -47,5 +47,29 @@ $('#sound').on('click', function() {
 
 function start_autoscroll() {
     window.scrollBy(0, 2);
-    if (autoscroll) setTimeout(start_autoscroll, 10);
+    if (autoscroll) setTimeout(start_autoscroll, 8);
 }
+
+// Time Countdown
+let targetDate = new Date('Jun 26, 2024');
+let currentDate = new Date();
+let remainingTime = targetDate - currentDate;
+
+let countdownInterval = setInterval(function() {
+    remainingTime -= 1000;
+
+    if (remainingTime <= 0) {
+        clearInterval(countdownInterval);
+        return 0;
+    }
+
+    let days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    $('#countdown .days span').text(days);
+    $('#countdown .hours span').text(hours);
+    $('#countdown .minutes span').text(minutes);
+    $('#countdown .seconds span').text(seconds);
+}, 1000);

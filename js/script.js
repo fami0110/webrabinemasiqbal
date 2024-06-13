@@ -27,15 +27,25 @@ $('#open').on('click', function() {
 });
 
 // Toogle event handler
-let autoscroll = false;
+let autoscroll;
+
+function start_autoscroll() {
+    autoscroll = setInterval(function() {
+        window.scrollBy(0, 1);
+    }, 20);
+}
+
+function stop_autoscroll(params) {
+    clearInterval(autoscroll);
+}
+
 $('#autoscroll').on('click', function() {
     let btn = $(this);
     btn.toggleClass('active');
     if (btn.hasClass('active')) {
-        autoscroll = true;
         start_autoscroll();
     } else {
-        autoscroll = false;
+        stop_autoscroll();
     }
 });
 
@@ -45,11 +55,6 @@ $('#sound').on('click', function() {
     if (btn.hasClass('active')) audio.play();
     else audio.pause();
 });
-
-function start_autoscroll() {
-    window.scrollBy(0, 2);
-    if (autoscroll) setTimeout(start_autoscroll, 8);
-}
 
 // Time Countdown
 let targetDate = new Date('Jun 26, 2024');
@@ -74,3 +79,7 @@ let countdownInterval = setInterval(function() {
     $('#countdown .minutes span').text(minutes);
     $('#countdown .seconds span').text(seconds);
 }, 1000);
+
+// Salin Alamat
+
+navigator.clipboard.writeText(output.innerText);

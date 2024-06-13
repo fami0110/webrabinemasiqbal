@@ -81,5 +81,7 @@ let countdownInterval = setInterval(function() {
 }, 1000);
 
 // Salin Alamat
-
-navigator.clipboard.writeText(output.innerText);
+$('button.copy').on('click', function() {
+    let p = $(this)[0].parentElement.querySelector('p').innerText;
+    navigator.clipboard.writeText(p);
+});

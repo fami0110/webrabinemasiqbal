@@ -61,7 +61,7 @@ main {
             article {
                 @include base.flex($direction: column, $wrap: wrap, $gap: 0);
                 position: absolute;
-                bottom: 20vh;
+                bottom: 25vh;
 
                 h2 {
                     font-size: calc(base.$text-sm + 8px);

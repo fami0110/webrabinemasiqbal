@@ -7,6 +7,7 @@
     <title>Udangan Pernikahan</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/simple-carousel.min.css" />
     <link rel="stylesheet" href="css/aos.min.css" />
 </head>
 <body>
@@ -67,29 +68,29 @@
 
         <section id="invitation">
             <article>
-                <h2>The Wedding Of</h2>
-                <h1>
+                <h2 data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1000">The Wedding Of</h2>
+                <h1 data-aos="flip-right" data-aos-delay="1200" data-aos-duration="800">
                     <b>Iqbal</b>
                     <span>&</span>
                     <b>Yuniar</b>
                 </h1>
-                <p>26 Juni 2024</p>
+                <p data-aos="fade-down" data-aos-delay="1800" data-aos-duration="800">26 Juni 2024</p>
             </article>
         </section>
 
         <section id="couple">
-            <h2 class="title">Mempelai</h2>
-            <div class="card">
+            <h2 class="title" data-aos="fade-down" data-aos-once="true">Mempelai</h2>
+            <div class="card" data-aos="flip-right">
                 <div class="photo-profile">
-                    <div class="container">
+                    <div class="container" data-aos="zoom-in-up" data-aos-delay="400" data-aos-offset="200">
                         <div class="backdrop-container"></div>
                     </div>
                 </div>
                 <img class="basmalah" src="assets/basmalah.png" alt="basmalah">
                 <p>Maha Suci Allah Subhanahu wa Ta'ala yang telah menciptakan makhluk-Nya berpasang-pasangan.
-                    Ya Allah, perkenankanlah dan Ridhoilah Pernikahan Kami.</p>
+                    Ya Allah, perkenankanlah dan ridhoilah pernikahan kami.</p>
                 <div class="container">
-                    <article>
+                    <article data-aos="zoom-in-right" data-aos-offset="100">
                         <h3>Muhammad Iqbal Hidayatulloh</h3>
                         <h4>Putra Pertama</h4>
                         <p>Bapak Nurul Huda & Ibu Zahroh</p>
@@ -97,7 +98,7 @@
                             <img src="assets/instagram.png" alt="instagram">
                         </a>
                     </article>
-                    <article>
+                    <article data-aos="zoom-in-left" data-aos-offset="100" data-aos-delay="400">
                         <h3>Yuniar Nur Azizah</h3>
                         <h4>Putri Pertama</h4>
                         <p>Bapak Suryantono & Ibu Agi Riani</p>
@@ -116,9 +117,9 @@
         </section>
 
         <section id="event">
-            <h2 class="title">Acara</h2>
+            <h2 class="title" data-aos="fade-down" data-aos-once="true">Acara</h2>
             <div class="container">
-                <div class="card">
+                <div class="card" data-aos="flip-left" data-aos-offset="200" data-aos-duration="1000">
                     <img src="assets/rings.svg" alt="rings">
                     <h3>Hitung Mundur</h3>
 
@@ -162,21 +163,45 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card" data-aos="zoom-in-up" data-aos-duration="1000">
+                <blockquote>
+                    Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.
+                </blockquote>
+                <h4>- Q.S. Ar-Rum : 21 -</h4>
+                <div class="corners">
+                    <img src="assets/corner3.png">
+                    <img src="assets/corner3.png">
+                    <img src="assets/corner3.png">
+                    <img src="assets/corner3.png">
+                </div>
+            </div>
         </section>
 
         <section id="gallery">
-
+            <h2 class="title" data-aos="fade-down" data-aos-once="true">Galeri</h2>
+            <div id="carousel" data-aos="fade-up" data-aos-once="true">
+                <img src="img/2.jpg">
+                <img src="img/3.jpg">
+                <img src="img/4.jpg">
+                <img src="img/5.jpg">
+                <img src="img/6.jpg">
+                <img src="img/7.jpg">
+                <img src="img/8.jpg">
+                <img src="img/9.jpg">
+                <img src="img/10.jpg">
+            </div>
         </section>
 
         <section id="gift">
             <div class="container">
-                <div class="card">
+                <div class="card" data-aos="flip-right" data-aos-duration="1000">
                     <img src="assets/gift2.png" alt="kado">
                     <p>Do'a restu keluarga, sahabat, serta rekan-rekan semua di pernikahan kami sudah sangat cukup sebagai hadiah, tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya dan tentunya semakin melengkapi kebahagiaan kami.</p>
                     
-                    <article>
+                    <article data-aos="zoom-out" data-aos-offset="200" data-aos-delay="400">
                         <h4>Kirim Hadiah</h4>
-                        <p>Jl. Klayatan I / RT. 06, RW. 12, Kelurahan Bandungrejosari, Kecamatan Sukun, Kota Malang, Jawa Timur</p>
+                        <p>Jl. Klayatan I / No. 55, RT 06, RW 12, Kelurahan Bandungrejosari, Kecamatan Sukun, Kota Malang, Jawa Timur</p>
                         <button class="copy">
                             <img src="assets/copy.png">
                             Salin Alamat
@@ -194,7 +219,7 @@
     </main>
 
     <footer>
-        <h2 data-aos="fade-up" class="title">Terima Kasih</h2>
+        <h2 data-aos="fade-up" class="title" data-aos="fade-down" data-aos-once="true">Terima Kasih</h2>
         <section data-aos="flip-up" id="credit">
             <p>Made with</p>
             <img width="16" height="16" src="https://img.icons8.com/color/24/filled-like.png" alt="filled-like">
@@ -208,8 +233,9 @@
     </audio>
 
     <!-- Scripts -->
-    <script src="js/aos.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="js/simple-carousel.js"></script>
+    <script src="js/aos.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

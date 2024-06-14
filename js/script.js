@@ -85,3 +85,10 @@ $('button.copy').on('click', function() {
     let p = $(this)[0].parentElement.querySelector('p').innerText;
     navigator.clipboard.writeText(p);
 });
+
+// Carousel Init
+let carousel = new Carousel('carousel', {
+    width: 'min(100%, 600px)',
+    height: '80vh',
+    navigation_mode: 4,
+});

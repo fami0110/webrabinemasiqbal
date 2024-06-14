@@ -366,10 +366,64 @@ main {
                     background-position: center top;
                 }
             }
+
+            & > .card {
+                @include base.flex($direction: column, $gap: 1rem);
+                position: relative;
+                width: min(86vw, 640px);
+                padding: 4rem 2rem;
+                margin-top: 2rem;
+                background: base.$bgcolor3;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border-radius: 1rem;
+                color: base.$textlight;
+                text-shadow: 0 0 3px base.$textdark;
+
+                .corners img {
+                    width: 50px;
+                    filter: invert(1);
+                }
+
+                blockquote {
+                    font-size: max(base.$text-xs, 1rem);
+                    text-align: justify;
+                    position: relative;
+                    text-indent: 2rem;
+
+                    &::before {
+                        content: '"';
+                        position: absolute;
+                        top: -12px;
+                        left: -2rem;
+                        font-size: 2.5rem;
+                    }
+
+                    &::after {
+                        content: '"';
+                        position: absolute;
+                        bottom: -2rem;
+                        right: 0;
+                        font-size: 2.5rem;
+                    }
+                }
+
+                h4 {
+                    @extend %title;
+                    font-size: max(base.$text-sm, 1.2rem);
+                    font-weight: bolder;
+                }
+            }
         }
 
         &#gallery {
             background: base.$bgcolor2;
+            padding: 8rem 1rem 6rem;
+
+            #carousel {
+                overflow: hidden;
+                border-radius: 1rem !important;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
         }
 
         &#gift {
